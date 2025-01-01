@@ -24,4 +24,22 @@ def  views_redirect_new(request):
 
 
 def views_index(request):
-    return render(request=request,template_name='index.html')
+    loop_data=[
+        {'key1':'v1','key2':'v2','key3':'v3'},
+        {'key1':'p1','key2':'p2','key3':'p3'},
+        {'key1':'q1','key2':'q1','key3':'q3'},
+    ]
+    # loop_data=[]
+    data={'title':'value from python file. hello how are u ??','line_items':loop_data}
+    return render(request=request,template_name='index.html',context=data)
+
+def another_page(request):
+    return render(request=request,template_name='another_page.html')
+
+def form_page(request):
+    if request.method=='POST':
+        print(dir(request))
+        print(type(request))
+        print(request.POST['id'])
+    return render(request=request,template_name='contact.html')
+    

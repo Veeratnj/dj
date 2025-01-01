@@ -12,3 +12,5 @@ python manage.py dbshell
 
 python manage.py showmigrations
 
+python manage.py createsuperuser
+

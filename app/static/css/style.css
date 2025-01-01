@@ -1,4 +1,22 @@
 *{
-background-color: black;
+background-color: black; 
 color: white;
+/* display: inline-block; */
+}
+body{
+   
+}
+
+/* .card {
+    display:'inline-block';
+    background-color: red;
+    
+} */
+
+.card {
+    display: inline-block;  /* Remove quotes around inline-block */
+    background-color: red;  /* Set background color to red */
+    padding: 10px;  /* Optional: add some padding for spacing */
+    margin: 5px;  /* Optional: add margin between cards */
+    color: white;  /* Optional: make text color white for contrast */
 }

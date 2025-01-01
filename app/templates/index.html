@@ -1,4 +1,82 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <h2>This is the content from the child template: menu.html</h2>
+<h2>
+    this content from python file {{title | upper }}
+</h2>
+<h2>
+    this content from python file {{ title | upper | default:"default value" }}
+</h2>
+<h1>Django Template Filters Example</h1>
+
+    <!-- 1. Convert to Uppercase -->
+    <h2>{{ title | upper }}</h2>
+
+    <!-- 2. Convert to Lowercase -->
+    <h2>{{ title | lower }}</h2>
+
+    <!-- 3. Capitalize the First Letter -->
+    <h2>{{ title | capfirst }}</h2>
+
+    <!-- 4. Convert to Title Case -->
+    <h2>{{ title | title }}</h2>
+
+    <!-- 5. Truncate After 10 Characters -->
+    <h2>{{ title | truncatechars:10 }}</h2>
+
+    <!-- 6. Truncate After 3 Words -->
+    <h2>{{ title | truncatewords:3 }}</h2>
+
+    <!-- 7. Add a Default Value If Empty -->
+    <h2>{{ title | default:"Default Title" }}</h2>
+
+    <!-- 8. Provide a Default Only If None -->
+    <h2>{{ title | default_if_none:"No Title Available" }}</h2>
+
+    <!-- 9. Display the Length of the Title -->
+    <h2>{{ title | length }}</h2>
+
+    <!-- 10. Slice the First 7 Characters -->
+    <h2>{{ title | slice:":7" }}</h2>
+
+    <!-- 11. Escape HTML Special Characters -->
+    <h2>{{ title | escape }}</h2>
+
+    <!-- 12. Mark Content as Safe (Allows HTML) -->
+    <h2>{{ title | safe }}</h2>
+
+    <!-- 13. Check Pluralization -->
+    <h2>{{ title | pluralize }}</h2>
+
+    <!-- 14. URL Encode -->
+    <h2>{{ title | urlencode }}</h2>
+
+    <!-- Combined Filters -->
+    <h2>{{ title | title | truncatewords:3 }}</h2>
+    <h2>{{ title | upper | default:"No Title Provided" }}</h2>
+    <h2>{{ title | truncatechars:10 | default:"No Title" | escape }}</h2>
+
+    {% comment %} for loop in html {% endcomment %}
+    {% if line_items %}
+        {% for i in line_items %}
+            <div class='card'>
+                <p>{{ i.key1 }}</p>
+                <p>{{ i.key2 }}</p>
+                <p>{{ i.key3 }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+        <p>no items available</p>
+        {% endif %}
+    {% comment %} <!-- {for i in line_items}
+    <div>
+        <p>{{i.key1}}</p>
+        <p>{{i.key2}}</p>
+        <p>{{i.key3}}</p>
+    </div>
+    {% endfor %} --> {% endcomment %}
+
+    <a href="{% url 'app:another_page' %}">go to another page</a>
+
 {% endblock %}

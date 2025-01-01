@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {% include 'header.html' %}
     <h1>Welcome to the Parent Template</h1>
     <img src="{% static 'images/netflix.webp' %}" alt="Netflix" width="300">
     
     {% block content %}
     <!-- This is where child templates insert content -->
     {% endblock %}
+    {% include 'footer.html' %}
 </body>
 </html>

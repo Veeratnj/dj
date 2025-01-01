@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="{% url 'app:form_page' %}" method="post">
+        {% csrf_token %}
+        <label for="id">enter ur id</label>
+        <input type="text" name="id"><br>
+        <label for="name">enter ur name</label>
+        <input type="text" name="name"><br>
+        <label for="email">enter ur email</label>
+        <input type="text" name="email"><br>
+        <button type="submit">send</button>
+    </form>
+    
+{% endblock %}
